@@ -25,10 +25,10 @@ export default function Home() {
   useEffect(() => {
     const token = localStorage.getItem("token") || cookies.get("token");
 
-    // if (!token) {
-    //   navigate("/signin");
-    //   return;
-    // }
+    if (!token) {
+      navigate("/signin");
+      return;
+    }
 
     // Fetch posts when component mounts
     const fetchPosts = async () => {
