@@ -4,9 +4,6 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
 import { AuthContext } from "../context/AuthProvider";
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
 
 export default function Home() {
   const [user, setUser] = useState({});
@@ -23,7 +20,7 @@ export default function Home() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
-    const token = localStorage.getItem("token") || cookies.get("token");
+    const token = localStorage.getItem("token");
 
     if (!token) {
       navigate("/signin");

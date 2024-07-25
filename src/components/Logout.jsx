@@ -3,6 +3,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export default function Logout() {
   const { setIsLoggedIn, setLogInUser } = useContext(AuthContext);
@@ -26,6 +29,7 @@ export default function Logout() {
         if (response.status === 200 && isMounted) {
           localStorage.removeItem("token");
           localStorage.removeItem("id");
+          cookies.remove("token");
           setIsLoggedIn(false);
           setLogInUser({});
           toast.success(response.data.message);
