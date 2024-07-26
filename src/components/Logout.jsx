@@ -31,8 +31,8 @@ export default function Logout() {
           localStorage.removeItem("id");
           setIsLoggedIn(false);
           setLogInUser({});
-          cookies.remove("token", { path: "/" });
           toast.success(response.data.message);
+          cookies.remove("token");
           navigate("/signin");
         }
       } catch (error) {
