@@ -29,7 +29,16 @@ export default function Logout() {
         if (response.status === 200 && isMounted) {
           localStorage.removeItem("token");
           localStorage.removeItem("id");
-          cookies.remove("token", { path: "/" });
+
+          // Attempt to remove cookies with specific attributes
+          cookies.remove("token", {
+            path: "/",
+            domain: window.location.hostname,
+            sameSite: "None",
+            secure: true,
+          });
+          cookies.remove("token"); // Fallback
+
           setIsLoggedIn(false);
           setLogInUser({});
           toast.success(response.data.message);
