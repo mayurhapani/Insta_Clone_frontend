@@ -29,11 +29,11 @@ export default function Logout() {
         if (response.status === 200 && isMounted) {
           localStorage.removeItem("token");
           localStorage.removeItem("id");
+          cookies.remove("token", { path: "/" });
           setIsLoggedIn(false);
           setLogInUser({});
           toast.success(response.data.message);
-          cookies.remove("token");
-          navigate("/signin");
+          navigate("/");
         }
       } catch (error) {
         if (isMounted) {
@@ -47,7 +47,7 @@ export default function Logout() {
     return () => {
       isMounted = false;
     };
-  }, [navigate, setIsLoggedIn, setLogInUser, BASE_URL]);
+  }, [navigate, setIsLoggedIn, setLogInUser]);
 
   return null;
 }
