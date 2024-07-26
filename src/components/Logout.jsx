@@ -33,7 +33,7 @@ export default function Logout() {
           setLogInUser({});
           cookies.remove("token", { path: "/" });
           toast.success(response.data.message);
-          navigate("/login");
+          navigate("/signin");
         }
       } catch (error) {
         if (isMounted) {
