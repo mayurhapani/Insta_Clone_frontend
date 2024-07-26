@@ -29,11 +29,11 @@ export default function Logout() {
         if (response.status === 200 && isMounted) {
           localStorage.removeItem("token");
           localStorage.removeItem("id");
-          cookies.remove("token", { path: "/" });
           setIsLoggedIn(false);
           setLogInUser({});
+          cookies.remove("token", { path: "/" });
           toast.success(response.data.message);
-          navigate("/");
+          navigate("/login");
         }
       } catch (error) {
         if (isMounted) {
