@@ -175,7 +175,7 @@ export default function Profile() {
       const dataImage = new FormData();
       dataImage.append("file", profilePic);
       dataImage.append("upload_preset", "instaClone");
-      dataImage.append("cloud_name", "instaclone21");
+      dataImage.append("cloud_name", "mayurcloud21");
       dataImage.append("folder", "users");
 
       const responseImage = await axios.post(
