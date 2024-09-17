@@ -10,3 +10,5 @@ Currently, two official plugins are available:
 VITE_BASE_URL=http://localhost:8001
 
 start command = npm run dev
+
+live site url =  https://insta-clone-frontend-five.vercel.app/signin
