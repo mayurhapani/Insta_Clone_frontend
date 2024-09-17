@@ -67,7 +67,7 @@ export default function CreatePost() {
       const dataImage = new FormData();
       dataImage.append("file", image);
       dataImage.append("upload_preset", "instaClone");
-      dataImage.append("cloud_name", "instaclone21");
+      dataImage.append("cloud_name", "mayurcloud21");
       dataImage.append("folder", "posts");
 
       const responseImage = await axios.post(
