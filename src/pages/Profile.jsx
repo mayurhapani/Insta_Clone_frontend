@@ -179,7 +179,7 @@ export default function Profile() {
       dataImage.append("folder", "users");
 
       const responseImage = await axios.post(
-        "https://api.cloudinary.com/v1_1/instaclone21/upload",
+        "https://api.cloudinary.com/v1_1/mayurcloud21/upload",
         dataImage
       );
       const uploadedImagePath = responseImage.data.url;
